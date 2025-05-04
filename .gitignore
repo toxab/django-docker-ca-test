@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Django
+*.sqlite3
+*.log
+
+# Env
+.env
+
+# Docker
+docker-compose.override.yml
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+*.pot
+*.mo
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+
+# Django stuff:
+db.sqlite3
+*.pyc
+instance/
+*.migrations/
+
+# If you prefer to ignore all migrations
+# Comment this line if you commit migrations
+**/migrations/*.py
+**/migrations/*.pyc
+!*/migrations/__init__.py
+
+# dotenv
+.env
+.env.*
+
+# Docker
+*.pid
+*.seed
+*.bak
+docker-compose.override.yml
+docker-compose.dev.yml
+certbot/
+*.tar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode / IDE
+.vscode/
+.idea/
+*.sublime*
+
+# Test output
+htmlcov/
+.coverage
+.tox/
+.nox/
+pytest_cache/
+coverage.xml
+*.cover
+
+# Static/media (optional - if collected)
+staticfiles/
+media/
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# MyPy / Ruff / Linters
+.mypy_cache/
+.pytest_cache/
+ruff_cache/
+.cache/
