@@ -1,0 +1,19 @@
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+    <h2>Financial Report</h2>
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between">
+            <strong>Total Revenue:</strong>
+            <span>${{ revenue|floatformat:2 }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <strong>Total Cost:</strong>
+            <span>${{ cost|floatformat:2 }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <strong>Profit:</strong>
+            <span>${{ profit|floatformat:2 }}</span>
+        </li>
+    </ul>
+{% endblock %}

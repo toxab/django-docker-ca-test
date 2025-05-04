@@ -15,6 +15,12 @@ echo "✅ Database is up!"
 echo "📦 Applying database migrations..."
 python manage.py migrate --noinput
 
+if [ "$(python manage.py shell -c 'from inventory.models import Ingredient; print(Ingredient.objects.exists())')" = "False" ]; then
+    echo "📥 Loading fixture data..."
+    python manage.py loaddata inventory/fixtures/initial_data.json
+else
+    echo "✔ Fixture data already loaded."
+
 # Optional: collect static files (useful for production)
 # echo "📁 Collecting static files..."
 # python manage.py collectstatic --noinput

@@ -1,0 +1,43 @@
+<!-- inventory/templates/dashboard.html -->
+{% extends "inventory/base.html" %}
+
+{% block content %}
+<h1>📊 Restaurant Dashboard</h1>
+
+<h2>🧾 Purchases</h2>
+<ul>
+  {% for purchase in purchases %}
+    <li>{{ purchase.menu_item.title }} — ${{ purchase.menu_item.price }}</li>
+  {% empty %}
+    <li>No purchases yet.</li>
+  {% endfor %}
+</ul>
+
+<h2>📦 Inventory</h2>
+<ul>
+  {% for ingredient in inventory %}
+    <li>{{ ingredient.name }} — {{ ingredient.quantity }} units @ ${{ ingredient.unit_price }} each</li>
+  {% empty %}
+    <li>No ingredients in inventory.</li>
+  {% endfor %}
+</ul>
+
+<h2>🍽️ Menu</h2>
+{% for item in menu_items %}
+  <h3>{{ item.title }} — ${{ item.price }}</h3>
+  <ul>
+    {% for req in item.reciperequirement_set.all %}
+      <li>{{ req.ingredient.name }}: {{ req.quantity }}</li>
+    {% endfor %}
+  </ul>
+{% empty %}
+  <p>No menu items.</p>
+{% endfor %}
+
+<h2>💵 Financial Summary</h2>
+<ul>
+  <li><strong>Total Revenue:</strong> ${{ total_revenue }}</li>
+  <li><strong>Total Cost:</strong> ${{ total_cost }}</li>
+  <li><strong>Profit:</strong> ${{ profit }}</li>
+</ul>
+{% endblock %}

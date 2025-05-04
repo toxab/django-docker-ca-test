@@ -1,0 +1,14 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+  <h2>Purchases</h2>
+  <a href="{% url 'purchase_add' %}" class="btn btn-primary mb-3">➕ Record Purchase</a>
+  <ul class="list-group">
+    {% for purchase in purchases %}
+      <li class="list-group-item">
+        {{ purchase.menu_item.title }} – {{ purchase.timestamp }}
+      </li>
+    {% empty %}
+      <li class="list-group-item">No purchases recorded yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+  <h2>Add Ingredients for {{ menu_item.title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% for ingredient in ingredients %}
+      <div class="mb-2">
+        <label>{{ ingredient.name }} ({{ ingredient.unit }})</label>
+        <input type="number" name="ingredient_{{ ingredient.id }}" step="0.01" class="form-control" />
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+{% endblock %}

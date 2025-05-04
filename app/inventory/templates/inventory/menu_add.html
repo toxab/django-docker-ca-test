@@ -1,0 +1,13 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+  <div class="container mt-4">
+    <h2>Add Menu Item</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <h4 class="mt-3">Recipe Requirements</h4>
+      {{ requirement_form.as_p }}
+      <button type="submit" class="btn btn-success">Create</button>
+    </form>
+  </div>
+{% endblock %}

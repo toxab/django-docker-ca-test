@@ -1,0 +1,13 @@
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>{{ update|default:False|yesno:"Update Ingredient,Add Ingredient" }}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">{{ update|default:False|yesno:"Update,Add" }}</button>
+      <a href="{% url 'ingredient_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+{% endblock %}
